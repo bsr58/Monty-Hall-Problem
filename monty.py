@@ -5,7 +5,7 @@ change_door = False
 
 def play(switch):
     car = random.randint(0, 2)
-    pick = 0                      # always pick door 0
+    pick = 0                      
     host = random.choice([d for d in range(3) if d != pick and d != car])
     if switch:
         pick = next(d for d in range(3) if d != pick and d != host)
@@ -25,7 +25,6 @@ for _ in range(trials):
     if play(True):
         switch_wins += 1
 
-# plot the number of successes for each strategy
 bars = plt.bar(["Stay", "Switch"], [stay_wins, switch_wins], color=["tab:red", "tab:green"])
 plt.bar_label(bars)
 
